@@ -8,8 +8,8 @@ fun main() {
     println(answer2)
 }
 
-fun part1(input: List<Int>) = input.windowed(2).count { (first, second) -> first < second }
+private fun part1(input: List<Int>) = input.windowed(2).count { (first, second) -> first < second }
 
 
-fun part2(input: List<Int>) =
+private fun part2(input: List<Int>) =
     input.windowed(3).windowed(2).count { (firstGroup, secondGroup) -> firstGroup.sum() < secondGroup.sum() }
