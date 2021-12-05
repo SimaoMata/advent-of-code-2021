@@ -1,17 +1,15 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
-    }
+    val valuesList: List<Int> = readInputToInt("Day01")
 
-    fun part2(input: List<String>): Int {
-        return input.size
-    }
+    val answer1 = part1(valuesList)
+    println(answer1)
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    val answer2 = part2(valuesList)
+    println(answer2)
 }
+
+fun part1(input: List<Int>) = input.windowed(2).count { (first, second) -> first < second }
+
+
+fun part2(input: List<Int>) =
+    input.windowed(3).windowed(2).count { (firstGroup, secondGroup) -> firstGroup.sum() < secondGroup.sum() }
